@@ -1,14 +1,14 @@
-// Imports the Google Cloud client library
 const textToSpeech = require('@google-cloud/text-to-speech');
-
-// Import other required libraries
 const fs = require('fs');
 const util = require('util');
+var player = require('play-sound')(opts = {});
 
 // Creates a client
 const client = new textToSpeech.TextToSpeechClient();
 
-(async function() {
+var playInRealTime = true;
+
+(async function () {
 
   // The text to synthesize
   var text = fs.readFileSync('./text.txt', 'utf8');
@@ -49,23 +49,30 @@ const client = new textToSpeech.TextToSpeechClient();
     // Ensure payload doesn't exceed 5k limit
     if (charCount > 4600 || n == arrayOfSentences.length - 1) {
 
-      console.log(textChunk);
-
       request.input.text = textChunk;
 
       // Performs the text-to-speech request
       const [response] = await client.synthesizeSpeech(request);
 
-      console.log(response);
-
       // Write the binary audio content to a local file
       const writeFile = util.promisify(fs.writeFile);
-      await writeFile('The_Psychology_of_Human_Misjudgment_' + index + '.mp3', response.audioContent, 'binary');
+
+      var fileName = 'The_Psychology_of_Human_Misjudgment_' + index + '.mp3';
+
+      await writeFile(fileName, response.audioContent, 'binary');
       console.log('Audio content written to file: output.mp3');
       index++;
 
       charCount = 0;
       textChunk = "";
+
+      // Begin Playing First File
+      console.log("Playing file: " + fileName);
+
+      playInRealTime && (index == 1) && player.play('./' + fileName, function (err) {
+        console.log(err);
+      })
+
     }
   }
-}()); 
+}());
