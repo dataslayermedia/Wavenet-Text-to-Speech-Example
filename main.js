@@ -3,10 +3,15 @@ const textToSpeech = require('@google-cloud/text-to-speech');
 const fs = require('fs');
 const util = require('util');
 
+ 
+
+
 // Creates a client
 const client = new textToSpeech.TextToSpeechClient();
 
-(async function() {
+
+
+(async function () {
 
   // The text to synthesize
 
@@ -67,4 +72,4 @@ const client = new textToSpeech.TextToSpeechClient();
 
     }
   }
-}()); 
+}());
