@@ -1,4 +1,7 @@
-# Wavenet-TTS-Example
+# Text to Speech Using Google's Wavenet Model
+This script can be run locally on Mac or Linux OS to transpose a text file "text.txt" into a series of sequential dictated audio files. A great use case it to transpose pdf's documents into audio books.
+
+### Create a Service Account
 
 ## YouTube Tutorial
 
