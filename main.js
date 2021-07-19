@@ -3,18 +3,12 @@ const textToSpeech = require('@google-cloud/text-to-speech');
 const fs = require('fs');
 const util = require('util');
 
- 
-
-
 // Creates a client
 const client = new textToSpeech.TextToSpeechClient();
-
-
 
 (async function () {
 
   // The text to synthesize
-
   var text = fs.readFileSync('./text.txt', 'utf8');
   var newArr = text.match(/[^\.]+\./g);
 
