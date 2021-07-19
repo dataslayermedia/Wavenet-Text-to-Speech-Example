@@ -3,6 +3,11 @@ This script can be run locally on Mac or Linux OS to transpose a text file "text
 
 ### Create a Service Account
 
+
+
+GOOGLE_APPLICATION_CREDENTIALS="/Users/refactored/Desktop/test.json" node main.js 
+
+
 ## YouTube Tutorial
 
 https://www.youtube.com/watch?v=uxjPTalCCT0
