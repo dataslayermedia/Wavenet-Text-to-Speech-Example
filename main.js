@@ -56,7 +56,7 @@ const client = new textToSpeech.TextToSpeechClient();
 
       // Write the binary audio content to a local file
       const writeFile = util.promisify(fs.writeFile);
-      await writeFile('Psychology_of_Human_Misjudgement_' + index + '.mp3', response.audioContent, 'binary');
+      await writeFile('Psychology_of_Human_Misjudgement_' + ('0000'+index).slice(-4) + '.mp3', response.audioContent, 'binary');
       console.log('Audio content written to file: output.mp3');
 
       index++;
