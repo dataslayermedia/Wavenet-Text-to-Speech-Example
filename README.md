@@ -21,6 +21,9 @@ Swap out the location of your service account json key file.
 
 The above command allows us to bypass having to download the gcloud SDK utility by directly passing our service account credentials.
 
+Alternative way to run the script
+`GOOGLE_APPLICATION_CREDENTIALS="/Users/refactored/Desktop/wavenet-service-account.json" node main.js`
+
 
 ## YouTube Step by Step Tutorial
 
